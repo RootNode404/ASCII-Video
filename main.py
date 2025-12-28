@@ -4,7 +4,7 @@ import sys
 
 # Change these to your likeing
 chars = "!@#$%^&*(_+)}|[]\\:\";'<{>?,./"  # Characters to use.
-cols = 200  # Change this for the resolution, higher numbers = lower fps/more delay
+res = 200  # Change this for the resolution, higher numbers = lower fps/more delay
 
 ASCII = np.array(list(chars))
 
@@ -21,10 +21,10 @@ while True:
 
     # Get height and width
     h, w, _ = frame.shape
-    rows = int(cols * h / w * 0.5)
+    rows = int(res * h / w * 0.5)
 
 
-    small = cv2.resize(frame, (cols, rows))
+    small = cv2.resize(frame, (res, rows))
     color = cv2.cvtColor(small, cv2.COLOR_BGR2GRAY)
 
     idx = (color / 256 * len(ASCII)).astype(np.int32)
@@ -34,7 +34,7 @@ while True:
     out_lines = []
     for y in range(rows):
         line = []
-        for x in range(cols):
+        for x in range(res):
             b, g, r = small[y, x]
             c = chars[y, x]
             line.append(f"\x1b[38;2;{r};{g};{b}m{c}")
