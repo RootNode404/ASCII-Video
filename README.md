@@ -7,7 +7,7 @@ Python packages install command:
 pip install numpy opencv-python
 ```
 ## Usage
-You can adjust the resolution and characters used by changing some varibles at the top of the code.
+You can adjust the resolution and characters used by changing some variables at the top of the code.
 
 When running if you get a ```can't open camera by index``` error, try changing the ```cam_index``` variable to another one digit number.
 
